@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://p43di0xo7djb"]
+
+[ext_resource type="Shader" uid="uid://dysj84jokj5dv" path="res://shaders/palette_swap.gdshader" id="1_j6p1d"]
+[ext_resource type="Texture2D" uid="uid://cdfmahiq8y518" path="res://assets/player_palette_1.png" id="2_u757b"]
+[ext_resource type="Texture2D" uid="uid://dhd6ep6qh4p70" path="res://assets/player_palette_3.png" id="3_lxysn"]
+[ext_resource type="Texture2D" uid="uid://bixlsb4u08cyl" path="res://assets/player.png" id="4_v0fls"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_emqa1"]
+shader = ExtResource("1_j6p1d")
+shader_parameter/palette_from = ExtResource("2_u757b")
+shader_parameter/palette_to = ExtResource("3_lxysn")
+shader_parameter/palette_size = 9
+shader_parameter/tolerance = 0.01
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_emqa1")
+texture = ExtResource("4_v0fls")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://kvqrb4h5x377"]
+
+[ext_resource type="Script" uid="uid://cnhqbny6wgid1" path="res://scripts/world.gd" id="1_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://p43di0xo7djb" path="res://scenes/player_palette_swap.tscn" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://ckk83rwukw64v" path="res://scenes/player_color_swap.tscn" id="2_4wyf3"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_4wyf3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.083000004
+anchor_bottom = 0.187
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -19.616005
+offset_bottom = -20.176003
+
+[node name="Pallete1" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Palette 1"
+
+[node name="Pallete2" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Palette 2"
+
+[node name="Pallete3" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Palette 3"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.90800005
+anchor_right = 1.0
+anchor_bottom = 0.133
+offset_left = 19.983887
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -86.184
+grow_horizontal = 0
+
+[node name="Index" type="SpinBox" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Color" type="ColorPickerButton" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+text = "a"
+
+[node name="PlayerColorSwap" parent="." instance=ExtResource("2_4wyf3")]
+position = Vector2(16, 0)
+
+[node name="PlayerPaletteSwap" parent="." instance=ExtResource("1_rwgxs")]
+position = Vector2(-16, 0)
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Pallete1" to="." method="_on_pallete_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Pallete2" to="." method="_on_pallete_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Pallete3" to="." method="_on_pallete_3_pressed"]
+[connection signal="value_changed" from="CanvasLayer/VBoxContainer2/Index" to="." method="_on_index_value_changed"]
+[connection signal="color_changed" from="CanvasLayer/VBoxContainer2/Color" to="." method="_on_color_color_changed"]

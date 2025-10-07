@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckk83rwukw64v"]
+
+[ext_resource type="Shader" uid="uid://c1gtu2qljlqey" path="res://shaders/color_swap.gdshader" id="1_o2jxc"]
+[ext_resource type="Texture2D" uid="uid://bixlsb4u08cyl" path="res://assets/player.png" id="4_d21jx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxvu3"]
+shader = ExtResource("1_o2jxc")
+shader_parameter/from_palette = PackedColorArray(0, 0, 0, 1, 0.06666667, 0.14509805, 0.5176471, 1, 0.05490196, 0.05490196, 0.22352941, 1, 1, 0.6509804, 0.6509804, 1, 0.36862746, 0.11372549, 0.07058824, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/to_palette = PackedColorArray(0.45449293, 0.18989557, 0.05378274, 1, 0.7193003, 0.09069986, 0.25724354, 1, 0.12328332, 0.11893704, 0.45133263, 1, 0.47079715, 0.21209751, 0.1428257, 1, 0.86290884, 0.44547725, 0.20598418, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/palette_size = 8
+shader_parameter/tolerance = 0.01
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_sxvu3")
+texture = ExtResource("4_d21jx")
